@@ -21,3 +21,6 @@ web/data/*.tmp
 .DS_Store
 Thumbs.db
 .vscode/
+
+# GitHub access token (read by the local credential helper, never committed)
+api.key
