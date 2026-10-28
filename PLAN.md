@@ -81,3 +81,14 @@ ADS/
   reason, rather than inventing a route.
 - **Statistics**: computed from real paths only. Improvement % = saved / initial × 100.
   It is exactly 0 when 2-opt finds nothing better.
+
+## 5. Status
+
+All nine stages are complete:
+
+- C++ engine: 23 unit tests, 15,149 checks, all passing.
+- Web: 31 Vitest tests passing. `next build` is clean.
+- Smoke tests: every API route and every page was checked against the production server.
+- Change made during the build: 2-opt now uses **best-improvement** instead of
+  first-improvement. First-improvement stopped at a worse local optimum on the demo
+  (56.6 km). Best-improvement reaches the 54.7 km optimum. See EXPLANATION.md §8.5.
