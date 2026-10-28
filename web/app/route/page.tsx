@@ -246,7 +246,7 @@ export default function RoutePage() {
           <p className="small muted" style={{ marginTop: 0 }}>
             For each pair of positions (i, j), reversing <span className="mono">seq[i..j]</span> swaps edges (a,b),(c,d) for (a,c),(b,d). The move is accepted only if{" "}
             <span className="complexity">Δ = d(a,c) + d(b,d) − d(a,b) − d(c,d) &lt; 0</span>
-            {!plan.twoOpt!.symmetricMatrix && " (+ the change from reversing internal one-way edges)"}.
+            {!plan.twoOpt!.symmetricMatrix && " (+ the change from reversing internal one-way edges)"}. Best-improvement: each pass evaluates every pair and applies only the most negative Δ.
           </p>
           <dl className="kv">
             <dt>Passes</dt><dd>{plan.twoOpt!.passes}</dd>

@@ -113,12 +113,15 @@ TwoOptResult twoOpt(const DistanceMatrix& m, std::vector<int> seq, bool returnTo
         return to < 0 ? 0.0 : m.d[from][to];  // to == -1 means "no next node" (open route end)
     };
 
-    bool improved = true;
-    while (improved && !r.hitIterationLimit) {
-        improved = false;
+    // Best-improvement ("steepest descent"): each pass evaluates every (i, j) pair, then
+    // applies only the single move with the most negative delta. Stop when no move helps
+    // (a 2-opt local optimum) or when the move limit is reached.
+    while (true) {
         ++r.passes;
-        for (int i = 1; i < lastStop && !r.hitIterationLimit; ++i) {
-            for (int j = i + 1; j <= lastStop && !r.hitIterationLimit; ++j) {
+        int bestI = -1, bestJ = -1;
+        double bestDelta = -EPS;  // only strictly improving moves qualify
+        for (int i = 1; i < lastStop; ++i) {
+            for (int j = i + 1; j <= lastStop; ++j) {
                 ++r.movesEvaluated;
                 int a = seq[i - 1], b = seq[i], c = seq[j];
                 int dn = (j + 1 < L) ? seq[j + 1] : -1;
@@ -138,20 +141,20 @@ TwoOptResult twoOpt(const DistanceMatrix& m, std::vector<int> seq, bool returnTo
                     delta += reverse - forward;
                 }
 
-                if (delta < -EPS) {  // strictly better: apply the move
-                    std::reverse(seq.begin() + i, seq.begin() + j + 1);
-                    ++accepted;
-                    improved = true;
-                    TwoOptMove mv;
-                    mv.pass = r.passes;
-                    mv.i = i; mv.j = j;
-                    mv.delta = delta;
-                    mv.costAfter = routeCost(m, seq);
-                    r.moves.push_back(mv);
-                    if (accepted >= maxIterations) r.hitIterationLimit = true;
-                }
+                if (delta < bestDelta) { bestDelta = delta; bestI = i; bestJ = j; }
             }
         }
+        if (bestI == -1) break;  // no improving move: the route is 2-opt optimal
+
+        std::reverse(seq.begin() + bestI, seq.begin() + bestJ + 1);  // apply the best move
+        ++accepted;
+        TwoOptMove mv;
+        mv.pass = r.passes;
+        mv.i = bestI; mv.j = bestJ;
+        mv.delta = bestDelta;
+        mv.costAfter = routeCost(m, seq);
+        r.moves.push_back(mv);
+        if (accepted >= maxIterations) { r.hitIterationLimit = true; break; }
     }
     r.seq = seq;
     return r;

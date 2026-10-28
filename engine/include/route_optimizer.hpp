@@ -47,7 +47,7 @@ std::vector<int> nearestNeighbour(const DistanceMatrix& m, bool returnToStart,
                                   std::vector<NNStep>* steps = nullptr);
 
 struct TwoOptMove {
-    int pass;           // which pass over all (i, j) pairs
+    int pass;           // which pass over all (i, j) pairs (one move per pass)
     int i, j;           // positions in seq whose segment seq[i..j] was reversed
     double delta;       // change in cost (always < 0 for an accepted move)
     double costAfter;
@@ -61,9 +61,10 @@ struct TwoOptResult {
     bool hitIterationLimit = false;
 };
 
-// 2-opt local search, first-improvement strategy. The warehouse stays fixed at position 0
-// (and at the end, if the route is a closed tour). maxIterations caps the number of
-// accepted moves.
+// 2-opt local search, best-improvement strategy: every pass scans all O(K^2) segment
+// reversals and applies the one with the most negative delta. The warehouse stays fixed at
+// position 0 (and at the end, if the route is a closed tour). maxIterations caps the
+// number of accepted moves.
 TwoOptResult twoOpt(const DistanceMatrix& m, std::vector<int> seq, bool returnToStart,
                     int maxIterations);
 
