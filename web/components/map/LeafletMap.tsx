@@ -42,7 +42,20 @@ export default function LeafletMap(props: NetworkViewProps) {
 
   return (
     <div style={{ height }} className="map-frame">
-      <MapContainer center={center} zoom={12} scrollWheelZoom zoomAnimation={false} markerZoomAnimation={false} style={{ height: "100%", width: "100%" }}>
+      {/* Gentle zoom: fractional quarter-level steps, and three times more scrolling per
+          zoom level than Leaflet's default (wheelPxPerZoomLevel 60). */}
+      <MapContainer
+        center={center}
+        zoom={12}
+        scrollWheelZoom
+        zoomSnap={0.25}
+        zoomDelta={0.5}
+        wheelPxPerZoomLevel={180}
+        wheelDebounceTime={60}
+        zoomAnimation={false}
+        markerZoomAnimation={false}
+        style={{ height: "100%", width: "100%" }}
+      >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
