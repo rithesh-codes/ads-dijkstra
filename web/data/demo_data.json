@@ -1,0 +1,411 @@
+{
+  "version": 1,
+  "description": "Illustrative Chennai delivery network. Distances = straight-line × road-type detour factor; they are NOT surveyed road distances.",
+  "locations": [
+    {
+      "id": "WH",
+      "name": "Guindy Central Warehouse",
+      "lat": 13.0067,
+      "lng": 80.2206,
+      "type": "warehouse"
+    },
+    {
+      "id": "TNAGAR",
+      "name": "T. Nagar",
+      "lat": 13.0418,
+      "lng": 80.2341,
+      "type": "delivery"
+    },
+    {
+      "id": "ADYAR",
+      "name": "Adyar",
+      "lat": 13.0012,
+      "lng": 80.2565,
+      "type": "delivery"
+    },
+    {
+      "id": "VELACHERY",
+      "name": "Velachery",
+      "lat": 12.9815,
+      "lng": 80.218,
+      "type": "delivery"
+    },
+    {
+      "id": "MYLAPORE",
+      "name": "Mylapore",
+      "lat": 13.0339,
+      "lng": 80.2619,
+      "type": "delivery"
+    },
+    {
+      "id": "ANNANAGAR",
+      "name": "Anna Nagar",
+      "lat": 13.085,
+      "lng": 80.2101,
+      "type": "delivery"
+    },
+    {
+      "id": "EGMORE",
+      "name": "Egmore",
+      "lat": 13.0732,
+      "lng": 80.2609,
+      "type": "delivery"
+    },
+    {
+      "id": "NUNGAM",
+      "name": "Nungambakkam",
+      "lat": 13.0569,
+      "lng": 80.2425,
+      "type": "delivery"
+    },
+    {
+      "id": "KODAM",
+      "name": "Kodambakkam",
+      "lat": 13.0521,
+      "lng": 80.2255,
+      "type": "delivery"
+    },
+    {
+      "id": "SAIDAPET",
+      "name": "Saidapet",
+      "lat": 13.0213,
+      "lng": 80.2231,
+      "type": "delivery"
+    },
+    {
+      "id": "VADAPALANI",
+      "name": "Vadapalani",
+      "lat": 13.05,
+      "lng": 80.2121,
+      "type": "delivery"
+    },
+    {
+      "id": "ASHOKNAGAR",
+      "name": "Ashok Nagar",
+      "lat": 13.0373,
+      "lng": 80.2123,
+      "type": "delivery"
+    },
+    {
+      "id": "BESANT",
+      "name": "Besant Nagar",
+      "lat": 13.0003,
+      "lng": 80.2667,
+      "type": "delivery"
+    },
+    {
+      "id": "PORUR",
+      "name": "Porur",
+      "lat": 13.0382,
+      "lng": 80.1565,
+      "type": "delivery"
+    },
+    {
+      "id": "TVMIYUR",
+      "name": "Thiruvanmiyur",
+      "lat": 12.983,
+      "lng": 80.2594,
+      "type": "delivery"
+    },
+    {
+      "id": "ENNORE",
+      "name": "Ennore Depot (not yet linked)",
+      "lat": 13.2146,
+      "lng": 80.3203,
+      "type": "delivery"
+    }
+  ],
+  "roads": [
+    {
+      "id": "R01",
+      "from": "WH",
+      "to": "SAIDAPET",
+      "distanceKm": 2.1,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R02",
+      "from": "SAIDAPET",
+      "to": "TNAGAR",
+      "distanceKm": 3.3,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R03",
+      "from": "TNAGAR",
+      "to": "NUNGAM",
+      "distanceKm": 2.5,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R04",
+      "from": "NUNGAM",
+      "to": "EGMORE",
+      "distanceKm": 3.5,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R05",
+      "from": "EGMORE",
+      "to": "ANNANAGAR",
+      "distanceKm": 7.4,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R06",
+      "from": "ANNANAGAR",
+      "to": "VADAPALANI",
+      "distanceKm": 5.1,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R07",
+      "from": "VADAPALANI",
+      "to": "KODAM",
+      "distanceKm": 2.1,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R08",
+      "from": "KODAM",
+      "to": "TNAGAR",
+      "distanceKm": 2.1,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R09",
+      "from": "KODAM",
+      "to": "NUNGAM",
+      "distanceKm": 2.8,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R10",
+      "from": "VADAPALANI",
+      "to": "ASHOKNAGAR",
+      "distanceKm": 2,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R11",
+      "from": "ASHOKNAGAR",
+      "to": "WH",
+      "distanceKm": 4.6,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R12",
+      "from": "ASHOKNAGAR",
+      "to": "TNAGAR",
+      "distanceKm": 3.5,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R13",
+      "from": "PORUR",
+      "to": "VADAPALANI",
+      "distanceKm": 7.1,
+      "travelTimeMin": 9.5,
+      "roadType": "highway",
+      "oneWay": false
+    },
+    {
+      "id": "R14",
+      "from": "PORUR",
+      "to": "WH",
+      "distanceKm": 8.9,
+      "travelTimeMin": 11.9,
+      "roadType": "highway",
+      "oneWay": false
+    },
+    {
+      "id": "R15",
+      "from": "WH",
+      "to": "VELACHERY",
+      "distanceKm": 3.7,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R16",
+      "from": "VELACHERY",
+      "to": "TVMIYUR",
+      "distanceKm": 5.8,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R17",
+      "from": "TVMIYUR",
+      "to": "ADYAR",
+      "distanceKm": 2.7,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R18",
+      "from": "ADYAR",
+      "to": "BESANT",
+      "distanceKm": 1.6,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R19",
+      "from": "BESANT",
+      "to": "TVMIYUR",
+      "distanceKm": 3,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R20",
+      "from": "ADYAR",
+      "to": "MYLAPORE",
+      "distanceKm": 4.8,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R21",
+      "from": "MYLAPORE",
+      "to": "TNAGAR",
+      "distanceKm": 4.1,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R22",
+      "from": "MYLAPORE",
+      "to": "NUNGAM",
+      "distanceKm": 4.8,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R23",
+      "from": "MYLAPORE",
+      "to": "EGMORE",
+      "distanceKm": 5.7,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R24",
+      "from": "WH",
+      "to": "ADYAR",
+      "distanceKm": 5.1,
+      "travelTimeMin": null,
+      "roadType": "arterial",
+      "oneWay": false
+    },
+    {
+      "id": "R25",
+      "from": "SAIDAPET",
+      "to": "ADYAR",
+      "distanceKm": 6.2,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R26",
+      "from": "WH",
+      "to": "MYLAPORE",
+      "distanceKm": 10.8,
+      "travelTimeMin": null,
+      "roadType": "congested",
+      "oneWay": false
+    },
+    {
+      "id": "R27",
+      "from": "SAIDAPET",
+      "to": "KODAM",
+      "distanceKm": 5,
+      "travelTimeMin": null,
+      "roadType": "local",
+      "oneWay": false
+    },
+    {
+      "id": "R28",
+      "from": "ANNANAGAR",
+      "to": "KODAM",
+      "distanceKm": 4.6,
+      "travelTimeMin": 6.1,
+      "roadType": "highway",
+      "oneWay": true
+    }
+  ],
+  "delivery": {
+    "warehouseId": "WH",
+    "stops": [
+      {
+        "locationId": "ANNANAGAR",
+        "status": "pending"
+      },
+      {
+        "locationId": "MYLAPORE",
+        "status": "pending"
+      },
+      {
+        "locationId": "PORUR",
+        "status": "pending"
+      },
+      {
+        "locationId": "VELACHERY",
+        "status": "pending"
+      },
+      {
+        "locationId": "EGMORE",
+        "status": "pending"
+      },
+      {
+        "locationId": "BESANT",
+        "status": "pending"
+      },
+      {
+        "locationId": "KODAM",
+        "status": "pending"
+      }
+    ]
+  },
+  "settings": {
+    "averageSpeedKmh": 30,
+    "returnToWarehouse": true,
+    "maxIterations": 1000
+  },
+  "lastPlan": null
+}
