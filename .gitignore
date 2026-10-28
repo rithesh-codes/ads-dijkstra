@@ -1,0 +1,23 @@
+# dependencies / build output
+node_modules/
+web/.next/
+web/out/
+web/next-env.d.ts
+*.tsbuildinfo
+engine/bin/
+engine/build/
+*.o
+*.exe
+
+# runtime data (regenerated from demo_data.json)
+web/data/store.json
+web/data/*.tmp
+
+# env / secrets
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
