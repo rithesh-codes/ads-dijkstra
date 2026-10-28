@@ -16,21 +16,21 @@ export function demoPath(): string {
 }
 
 export function loadDemo(): StoreData {
-  return JSON.parse(fs.readFileSync(demoPath(), "utf8")) as StoreData;
+  return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ demoPath(), "utf8")) as StoreData;
 }
 
 export function loadStore(): StoreData {
   const file = storePath();
-  if (!fs.existsSync(file)) {
+  if (!fs.existsSync(/*turbopackIgnore: true*/ file)) {
     const demo = loadDemo();
     saveStore(demo);
     return demo;
   }
   try {
-    return JSON.parse(fs.readFileSync(file, "utf8")) as StoreData;
+    return JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as StoreData;
   } catch {
     // A corrupted store file is kept as a backup and replaced with the demo data.
-    fs.copyFileSync(file, `${file}.corrupt-${Date.now()}.bak`);
+    fs.copyFileSync(/*turbopackIgnore: true*/ file, `${file}.corrupt-${Date.now()}.bak`);
     const demo = loadDemo();
     saveStore(demo);
     return demo;
@@ -39,10 +39,10 @@ export function loadStore(): StoreData {
 
 export function saveStore(data: StoreData): void {
   const file = storePath();
-  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.mkdirSync(/*turbopackIgnore: true*/ path.dirname(file), { recursive: true });
   const tmp = `${file}.${process.pid}.tmp`;
-  fs.writeFileSync(tmp, JSON.stringify(data, null, 2));
-  fs.renameSync(tmp, file);
+  fs.writeFileSync(/*turbopackIgnore: true*/ tmp, JSON.stringify(data, null, 2));
+  fs.renameSync(/*turbopackIgnore: true*/ tmp, file);
 }
 
 export function resetToDemo(): StoreData {

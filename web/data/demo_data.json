@@ -108,10 +108,10 @@
       "type": "delivery"
     },
     {
-      "id": "ENNORE",
-      "name": "Ennore Depot (not yet linked)",
-      "lat": 13.2146,
-      "lng": 80.3203,
+      "id": "PERUNGUDI",
+      "name": "Perungudi Depot (not yet linked)",
+      "lat": 12.9654,
+      "lng": 80.2461,
       "type": "delivery"
     }
   ],

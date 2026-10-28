@@ -57,8 +57,8 @@ describe("location validation", () => {
 
   it("deletes an unreferenced location", () => {
     const d = demo();
-    deleteLocation(d, "ENNORE");
-    expect(d.locations.some((l) => l.id === "ENNORE")).toBe(false);
+    deleteLocation(d, "PERUNGUDI");
+    expect(d.locations.some((l) => l.id === "PERUNGUDI")).toBe(false);
   });
 });
 
@@ -68,8 +68,8 @@ describe("road validation", () => {
   });
 
   it("rejects negative and zero distances", () => {
-    expectInvalid(() => addRoad(demo(), { from: "WH", to: "ENNORE", distanceKm: -4 }), /Negative/);
-    expectInvalid(() => addRoad(demo(), { from: "WH", to: "ENNORE", distanceKm: 0 }), /greater than 0/);
+    expectInvalid(() => addRoad(demo(), { from: "WH", to: "PERUNGUDI", distanceKm: -4 }), /Negative/);
+    expectInvalid(() => addRoad(demo(), { from: "WH", to: "PERUNGUDI", distanceKm: 0 }), /greater than 0/);
   });
 
   it("rejects self loops", () => {

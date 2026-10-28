@@ -48,8 +48,8 @@ describe.skipIf(!hasEngine)("C++ engine integration", () => {
 
   it("reports the isolated depot as unreachable", async () => {
     const r = await reachability(demo(), "WH");
-    expect(r.unreachable).toEqual(["ENNORE"]);
-    const p = await shortestPath(demo(), "WH", "ENNORE");
+    expect(r.unreachable).toEqual(["PERUNGUDI"]);
+    const p = await shortestPath(demo(), "WH", "PERUNGUDI");
     expect(p.reachable).toBe(false);
     expect(p.distance).toBeNull();
   });
@@ -93,10 +93,10 @@ describe.skipIf(!hasEngine)("C++ engine integration", () => {
 
   it("skips unreachable stops and reports them", async () => {
     const d = demo();
-    d.delivery.stops.push({ locationId: "ENNORE", status: "pending" });
+    d.delivery.stops.push({ locationId: "PERUNGUDI", status: "pending" });
     const plan = await computePlan(d);
-    expect(plan.unreachableStops).toEqual(["ENNORE"]);
-    expect(plan.optimised!.sequence).not.toContain("ENNORE");
+    expect(plan.unreachableStops).toEqual(["PERUNGUDI"]);
+    expect(plan.optimised!.sequence).not.toContain("PERUNGUDI");
   });
 
   it("shows zero improvement when 2-opt is disabled", async () => {

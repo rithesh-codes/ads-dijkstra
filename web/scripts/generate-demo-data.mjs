@@ -27,7 +27,7 @@ const locations = [
   ["BESANT", "Besant Nagar", 13.0003, 80.2667, "delivery"],
   ["PORUR", "Porur", 13.0382, 80.1565, "delivery"],
   ["TVMIYUR", "Thiruvanmiyur", 12.983, 80.2594, "delivery"],
-  ["ENNORE", "Ennore Depot (not yet linked)", 13.2146, 80.3203, "delivery"],
+  ["PERUNGUDI", "Perungudi Depot (not yet linked)", 12.9654, 80.2461, "delivery"],
 ];
 
 const FACTOR = { highway: 1.15, arterial: 1.3, local: 1.45, congested: 2.0 };

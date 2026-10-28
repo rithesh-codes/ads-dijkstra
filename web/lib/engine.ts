@@ -62,7 +62,7 @@ export async function runEngine<T>(
   params: Record<string, string | number | boolean | string[]> = {},
 ): Promise<T & { engineMs: number }> {
   const exe = enginePath();
-  if (!fs.existsSync(exe)) {
+  if (!fs.existsSync(/*turbopackIgnore: true*/ exe)) {
     throw new EngineError(
       `C++ engine not found at ${exe}. Build it with "npm run engine:build" (requires g++).`,
       503,
@@ -72,7 +72,7 @@ export async function runEngine<T>(
   const started = performance.now();
 
   const stdout = await new Promise<string>((resolve, reject) => {
-    const child = spawn(exe, [], { stdio: ["pipe", "pipe", "pipe"], windowsHide: true });
+    const child = spawn(/*turbopackIgnore: true*/ exe, [], { stdio: ["pipe", "pipe", "pipe"], windowsHide: true });
     let out = "";
     let err = "";
     const timer = setTimeout(() => {
